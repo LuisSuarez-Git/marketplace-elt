@@ -1,0 +1,22 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Ambientes virtuales
+venv/
+.env
+
+# Archivos de datos locales y bases de datos analíticas
+data/
+*.duckdb
+*.duckdb.wal
+
+# dbt artifacts
+analytics_dbt/target/
+analytics_dbt/dbt_packages/
+analytics_dbt/logs/
+
+# Logs del sistema
+*.log

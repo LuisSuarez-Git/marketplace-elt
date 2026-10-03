@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: external_raw
+    description: "Archivos Parquet crudos generados por el pipeline de ingesta en el Stage local"
+    tables:
+      - name: raw_orders
+        description: "Eventos de pedidos transaccionales particionados por fecha"
+        meta:
+          external_location: "/workspace/data/raw/orders/**/*.parquet"

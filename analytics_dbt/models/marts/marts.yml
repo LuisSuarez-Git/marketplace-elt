@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Tabla de hechos incremental de órdenes con grano por pedido (order_key)."
+    columns:
+      - name: order_key
+        description: "Surrogate key determinista generado con md5(order_id)."
+        tests:
+          - unique
+          - not_null
+
+      - name: order_id
+        description: "Llave natural proveniente de la API/Stage."
+        tests:
+          - unique
+          - not_null
+
+      - name: country_code
+        description: "Código ISO de país admitido en la plataforma."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['CO', 'MX', 'BR', 'CL']
+
+      - name: total_amount_usd
+        description: "Monto monetario de la transacción en USD."
+        tests:
+          - not_null
+
+      - name: order_status
+        description: "Estado del ciclo de vida del pedido."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['placed', 'preparing', 'delivered', 'cancelled']

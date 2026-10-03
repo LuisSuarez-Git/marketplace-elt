@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    image: python:3.11-slim
+    user: "1000:1000"
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: bash -c "pip install -r requirements.txt && tail -f /dev/null"
