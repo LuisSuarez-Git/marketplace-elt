@@ -33,7 +33,7 @@ flowchart TD
     subgraph DataQuality [Automated Quality Gates]
         FctOrders -->|CI Regression| DbtTest[dbt Schema Tests: unique, not_null, accepted_values]
     end
-
+```
 Key Engineering Decisions & Trade-offs
 1. Ingestion Boundary & Resiliency (DLQ Pattern)
 
@@ -113,4 +113,3 @@ python -m pytest -v
 # Data quality tests (dbt schema validations)
 cd analytics_dbt
 dbt test --profiles-dir .
-```
