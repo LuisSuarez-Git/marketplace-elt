@@ -53,7 +53,7 @@ Key Engineering Decisions & Trade-offs
 
     The Solution: Configured fct_orders with an incremental strategy (delete+insert) indexed by a deterministic surrogate key (md5(order_id)). Subsequent runs scan only new records (created_at_utc > max(created_at_utc)), achieving sub-tenth-of-a-second execution times with guaranteed primary-key uniqueness.
 
-Repository Structure
+```Repository Structure
 Plaintext
 
 ├── .github/workflows/
@@ -82,19 +82,15 @@ Plaintext
 │   └── test_validation.py      # Contract & anomaly regression tests
 ├── docker-compose.yml
 └── requirements.txt
-
+```
 Quickstart & Local Reproduction
 
 This project is fully containerized to ensure reproducibility across any Linux/macOS/Windows host.
 Prerequisites
 
-    Docker & Docker Compose
-
-    Git
-
 Running the End-to-End Pipeline
 Bash
-
+```
 # 1. Spin up the containerized environment
 docker-compose up -d
 
@@ -113,3 +109,4 @@ python -m pytest -v
 # Data quality tests (dbt schema validations)
 cd analytics_dbt
 dbt test --profiles-dir .
+```
